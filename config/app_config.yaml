@@ -1,0 +1,9 @@
+# 应用全局配置
+ollama:
+  endpoint: "http://127.0.0.1:11434/api/generate"
+  timeout: 60
+  model: "llava"
+
+rag:
+  chunk_size: 512
+  top_k: 3

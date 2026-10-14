@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文件分析</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}
+body{padding:24px;color:#2c3e50;line-height:1.65;}
+h2{color:#2c3e50;margin-bottom:16px;border-bottom:2px solid #3498db;padding-bottom:8px;}
+.upload-box{border:2px dashed #3498db;padding:30px;text-align:center;border-radius:8px;margin:20px 0;}
+</style>
+<body>
+    <h2>文件上传与AI分析</h2>
+    <div class="upload-box">
+        <input type="file" id="file-input">
+        <p>选择文件上传提交分析</p>
+        <button onclick="submitAnalyze()">提交分析</button>
+    </div>
+    <div id="result"></div>
+<script>
+async function submitAnalyze(){
+    const f = document.getElementById("file-input").files[0];
+    if(!f) return;
+    const formData = new FormData();
+    formData.append("file", f);
+    const resp = await fetch("/api/analyze", {method:"POST", body:formData});
+    const data = await resp.json();
+    document.getElementById("result").innerText = JSON.stringify(data,null,2);
+}
+</script>
+</body>
+</html>

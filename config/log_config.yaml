@@ -1,0 +1,6 @@
+# 日志配置
+log_level: INFO
+log_file_path: ./logs/app.log
+max_file_size_mb: 10
+backup_count: 5
+console_output: true

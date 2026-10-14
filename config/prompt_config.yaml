@@ -1,0 +1,7 @@
+# Prompt模板配置
+# 在这里定义业务提示词，代码通过key读取
+# example_key: |
+#   这里写提示词内容
+
+example_vision_prompt: |
+你是专业分析助手。参考知识库规则，分析上传图片内容，输出结构化JSON结果。
