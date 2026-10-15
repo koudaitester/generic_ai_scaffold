@@ -1,8 +1,14 @@
 #!/bin/bash
 set -e
 
-# 项目根目录名称
-PROJECT_NAME="generic_ai_scaffold"
+# 判断参数
+if [ $# -ne 1 ]; then
+    echo "用法: $0 <项目名称>"
+    echo "示例: $0 human_env_api"
+    exit 1
+fi
+
+PROJECT_NAME="$1"
 
 # 创建目录树
 mkdir -p ${PROJECT_NAME}/config
